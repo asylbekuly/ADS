@@ -76,6 +76,27 @@
             }
             return true;
         }
+        public static String swaping(String str , int left, int right){
+            char[] charArray = str.toCharArray();
+            char temp = charArray[left];
+            charArray[left] = charArray[right];
+            charArray[right] = temp;
+            return new String(charArray);
+        }
+
+        public static void task7(String str, int a, int b) { //  String a; a= scan.nextLine(); task7(a,0,a.length()-1);
+
+            if (a == b) {
+                System.out.println(str);
+            } else {
+                for (int i = a; i <= b; i++) {
+                    str = swaping(str, a, i);
+                    task7(str, a + 1, b);
+                    str = swaping(str, a, i);
+                }
+            }
+        }
+
 
         public static void task8() {
             String a = scan.next();
@@ -107,7 +128,12 @@
             int n = scan.nextInt();
             System.out.println(Euclidean_Algorithm_gcd(a,n));
         }
+
+
+
         public static void main(String[] args) {
-            task9();
+            String a;
+            a= scan.nextLine();
+            task7(a,0,a.length()-1);
         }
     }
